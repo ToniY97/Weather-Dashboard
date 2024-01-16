@@ -72,3 +72,9 @@ function displaySearchHistory() {
     const historyHtml = searchHistory.map(city => `<a href="#" class="list-group-item">${city}</a>`).join('');
     $('#history').html(historyHtml);
   }
+   
+  // Function to save the search history to local storage
+  function saveSearchHistory() {
+    localStorage.setItem(historyKey, JSON.stringify(searchHistory));
+  }
+});
