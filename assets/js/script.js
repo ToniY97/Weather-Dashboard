@@ -18,10 +18,36 @@ $(document).ready(function () {
         // Fetch weather data for the given city
         getWeatherData(cityName);
     });
-
+     
+    // Event listener for clicking on a search history item
     $('#history').on('click', '.list-group-item', function () {
+        // Get the city name from the clicked history item
         const cityName = $(this).text().trim();
         getWeatherData(cityName);
     });
-
-    
+     
+    // Function to fetch weather data for a given city
+    function getWeatherData(cityName) {
+        // Construct the API URL for OpenWeatherMap
+        const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`;
+        
+        // Make an AJAX request to retrieve weather data
+        $.ajax({
+          url: apiUrl,
+          method: 'GET',
+          dataType: 'json',
+          success: function (data) {
+            // Update the weather data on the page
+            updateWeatherData(data, cityName);
+            // Add the city to the search history
+            addToSearchHistory(cityName);
+            // Save the updated search history to local storage
+            saveSearchHistory();
+          },
+          error: function (error) {
+            console.error('Error fetching weather data:', error);
+          }
+        });
+      }
+      
+      
