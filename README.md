@@ -9,10 +9,13 @@ A weather dashboard that allows users to search for a city and view current and 
 - View a 5-day forecast for the searched city with date, weather icon, temperature, and humidity.
 - Search history functionality: The searched cities are added to the search history, and users can click on a city in the history to view its weather conditions again.
 
-## Technologies Used
+## Used
 
 - HTML
 - CSS (Bootstrap for styling)
 - JavaScript (jQuery for DOM manipulation)
 - OpenWeatherMap API for weather data
 - Day.js for date formatting
+
+![screenshot](./assets/screencapture-Weather-Dashboard.png)
+[Weather-Dashboard-website](https://toniy97.github.io/Weather-Dashboard/)
