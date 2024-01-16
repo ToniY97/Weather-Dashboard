@@ -66,3 +66,9 @@ function addToSearchHistory(cityName) {
       displaySearchHistory();
     }
 }
+
+// to show search history
+function displaySearchHistory() {
+    const historyHtml = searchHistory.map(city => `<a href="#" class="list-group-item">${city}</a>`).join('');
+    $('#history').html(historyHtml);
+  }
