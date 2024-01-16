@@ -56,40 +56,34 @@ $(document).ready(function () {
 
     // Function to update and display weather data on the page
     function updateWeatherData(data, cityName) {
-        // Extract current weather data from the API response
+        // Current weather data
         const currentWeather = data.list[0].main;
-
-        // Generate HTML for the current weather card
         const todayHtml = `
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">${cityName} (${dayjs().format('M/D/YYYY')})</h2>
-        <p class="card-text">Temperature: ${currentWeather.temp}°C</p>
-        <p class="card-text">Humidity: ${currentWeather.humidity}%</p>
-        <p class="card-text">Wind Speed: ${data.list[0].wind.speed} m/s</p>
-        <img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png" alt="Weather Icon">
-      </div>
-    </div>
-  `;
-
-        // Display the current weather card on the page
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">${cityName} (${dayjs().format('M/D/YYYY')})</h2>
+              <p class="card-text">Temperature: ${currentWeather.temp}°C</p>
+              <p class="card-text">Humidity: ${currentWeather.humidity}%</p>
+              <p class="card-text">Wind Speed: ${data.list[0].wind.speed} m/s</p>
+              <img src="http://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png" alt="Weather Icon">
+            </div>
+          </div>
+        `;
         $('#today').html(todayHtml);
-
-        // Extract and display the 5-day forecast data
-        const forecastHtml = data.list.slice(1, 6).map(entry => `
-    <div class="card col-md-2">
-      <div class="card-body">
-        <p class="card-text">${dayjs(entry.dt_txt).format('M/D/YYYY')}</p>
-        <p class="card-text">Temperature: ${entry.main.temp}°C</p>
-        <p class="card-text">Humidity: ${entry.main.humidity}%</p>
-        <img src="http://openweathermap.org/img/w/${entry.weather[0].icon}.png" alt="Weather Icon">
-      </div>
-    </div>
-  `).join('');
-
-        // Display the 5-day forecast cards on the page
+      
+        // 5-day forecast data
+        const forecastHtml = data.list.filter(entry => entry.dt_txt.includes('12:00:00')).map(entry => `
+          <div class="card col-md-2">
+            <div class="card-body">
+              <p class="card-text">${dayjs(entry.dt_txt).format('M/D/YYYY')}</p>
+              <p class="card-text">Temperature: ${entry.main.temp}°C</p>
+              <p class="card-text">Humidity: ${entry.main.humidity}%</p>
+              <img src="http://openweathermap.org/img/w/${entry.weather[0].icon}.png" alt="Weather Icon">
+            </div>
+          </div>
+        `).join('');
         $('#forecast').html(forecastHtml);
-    }
+      }
 
     // Function to add a city to the search history
     function addToSearchHistory(cityName) {
