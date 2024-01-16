@@ -23,3 +23,42 @@ body {
     padding: 20px;
     border-radius: 5px;
   }
+
+  .list-group-item {
+    cursor: pointer;
+  }
+  
+  .list-group-item:hover {
+    background-color: #dee2e6;
+  }
+  
+  .card {
+    margin-top: 20px;
+  }
+  
+  /*custom cards*/
+  .weather-card {
+    margin-bottom: 20px;
+  }
+
+  .weather-card img {
+    max-width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.5rem;
+    }
+  
+    aside {
+      margin-top: 20px;
+    }
+  
+    .card {
+      margin-top: 10px;
+    }
+  }
+  
