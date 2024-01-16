@@ -50,4 +50,19 @@ $(document).ready(function () {
         });
       }
       
-      
+    // Function to update and display weather data on the page
+    function updateWeatherData(data, cityName) {
+        // Extract current weather data from the API response
+
+    }
+    // Function to add a city to the search history
+function addToSearchHistory(cityName) {
+    // Check if the city is not already in the search history
+    if (!searchHistory.includes(cityName)) {
+      // Add the city to the search history array
+      searchHistory.push(cityName);
+  
+      // Display the updated search history on the page
+      displaySearchHistory();
+    }
+}
