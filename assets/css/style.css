@@ -33,13 +33,14 @@
   .list-group-item:hover {
     background-color: #1c8af9;
   }
-  
-
+  #today {
+    background: #022c48;
+  }
   /*custom cards*/
   #forecast {
     margin-bottom: 20px;
     background: #022c48;
-    padding: 20px; /* Added padding for better visual appeal */
+    padding: 5px; /* Added padding for better visual appeal */
   }
 
 
