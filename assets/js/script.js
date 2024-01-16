@@ -50,11 +50,7 @@ $(document).ready(function () {
         });
       }
       
-    // Function to update and display weather data on the page
-    function updateWeatherData(data, cityName) {
-        // Extract current weather data from the API response
 
-    }
     // Function to add a city to the search history
 function addToSearchHistory(cityName) {
     // Check if the city is not already in the search history
